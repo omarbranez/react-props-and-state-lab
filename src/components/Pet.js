@@ -1,5 +1,5 @@
 import React from 'react'
-
+{/* <Pet pet={pet} key={pet.id} onAdoptPet={this.props.onAdoptPet} /> */}
 class Pet extends React.Component {
   render() {
     return (
@@ -7,19 +7,22 @@ class Pet extends React.Component {
         <div className="content">
           <a className="header">
             {/*'♀' OR '♂' */}
-            PET NAME
+            {this.props.pet.name}
+            {this.props.pet.gender === "male" ? '♂' : '♀'}
           </a>
           <div className="meta">
-            <span className="date">PET TYPE</span>
+            <span className="date">{this.props.pet.type}</span>
           </div>
           <div className="description">
-            <p>Age: PET AGE</p>
-            <p>Weight: PET WEIGHT</p>
+            <p>Age: {this.props.pet.age}</p>
+            <p>Weight: {this.props.pet.weight}</p>
           </div>
         </div>
         <div className="extra content">
-          <button className="ui disabled button">Already adopted</button>
-          <button className="ui primary button">Adopt pet</button>
+          {/* we need the pet id if it's not adopted */}
+          {this.props.pet.isAdopted ? <button className="ui disabled button">Already adopted</button> : <button className="ui primary button" onClick={()=>this.props.onAdoptPet(this.props.pet.id)}>Adopt pet</button>}
+          {/* <button className="ui disabled button">Already adopted</button>
+          <button className="ui primary button">Adopt pet</button> */}
         </div>
       </div>
     )
