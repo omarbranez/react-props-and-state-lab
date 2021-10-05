@@ -22,8 +22,8 @@ class App extends React.Component {
     }
     fetch(fetchURL)
     .then(res => res.json)
-    .then(pets => this.setState({
-      pets: pets
+    .then(petResults => this.setState({
+      pets: petResults
     })) 
 
   }
@@ -36,7 +36,7 @@ class App extends React.Component {
           isAdopted: true
         }
       }
-      else { return pet}
+      else { return pet }
     })
     this.setState({
       pets: petResult
