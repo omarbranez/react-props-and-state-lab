@@ -20,12 +20,12 @@ class App extends React.Component {
     if (this.state.filters.type !== "all"){
       fetchURL = fetchURL + `?type=${this.state.filters.type}`
     }
+    // debugger
     fetch(fetchURL)
-    .then(res => res.json)
-    .then(pets => this.setState({
-      pets: pets
-    })) 
-
+      .then(res => res.json())
+      .then(petResults => this.setState({
+        pets: petResults
+    }))
   }
 
   onAdoptPet = (petId) => {
@@ -36,7 +36,7 @@ class App extends React.Component {
           isAdopted: true
         }
       }
-      else { return pet}
+      else { return pet }
     })
     this.setState({
       pets: petResult
