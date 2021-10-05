@@ -36,7 +36,6 @@ class App extends React.Component {
           isAdopted: true
         }
       }
-      else { return pet }
     })
     this.setState({
       pets: petResult
